@@ -1,0 +1,19 @@
+# Host state, never repo content.
+#
+# deployed/<run name>/ — everything a started stack owns: the club_server
+# clone (when no source checkout was named), the PostgreSQL cluster, uploads,
+# static files and server.log. Created by start_server.sh, removed by
+# stop_server.sh --remove / background_server.sh cleanup.
+/deployed/
+
+# Editor swap and backup files.
+*.swp
+*.swo
+*~
+.*.sw[a-p]
+
+# Backup archives dropped here for a restore. They are large, they are host
+# state, and restore_server.sh reads this directory — it never fetches. A .keep
+# marks it so the directory survives a clone.
+/backup/*
+!/backup/.keep
